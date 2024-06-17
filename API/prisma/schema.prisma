@@ -1,0 +1,186 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model instrumentation {
+  id           Int       @id @default(autoincrement())
+  nis_id       Int?
+  fa_voltage   String?   @db.VarChar(50)
+  fb_voltage   String?   @db.VarChar(50)
+  fc_voltage   String?   @db.VarChar(50)
+  fa_current   String?   @db.VarChar(50)
+  fb_current   String?   @db.VarChar(50)
+  fc_current   String?   @db.VarChar(50)
+  system_watts String?   @db.VarChar(50)
+  set_number   String?   @db.VarChar(50)
+  date         DateTime? @db.Timestamp(6)
+  users        users?    @relation(fields: [nis_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model reading {
+  id                                  Int       @id @default(autoincrement())
+  nis_id                              Int?
+  fa_wh_delivered                     String?   @db.VarChar(50)
+  fa_wh_max_demand_delivered          String?   @db.VarChar(50)
+  fa_wh_cumulative_demand_delivered   String?   @db.VarChar(50)
+  fa_wh_date_delivered                DateTime? @db.Timestamp(6)
+  fb_wh_delivered                     String?   @db.VarChar(50)
+  fb_wh_max_demand_delivered          String?   @db.VarChar(50)
+  fb_wh_cumulative_demand_delivered   String?   @db.VarChar(50)
+  fb_wh_date_delivered                DateTime? @db.Timestamp(6)
+  fc_wh_delivered                     String?   @db.VarChar(50)
+  fc_wh_max_demand_delivered          String?   @db.VarChar(50)
+  fc_wh_cumulative_demand_delivered   String?   @db.VarChar(50)
+  fc_wh_date_delivered                DateTime? @db.Timestamp(6)
+  fd_wh_delivered                     String?   @db.VarChar(50)
+  fd_wh_max_demand_delivered          String?   @db.VarChar(50)
+  fd_wh_cumulative_demand_delivered   String?   @db.VarChar(50)
+  fd_wh_date_delivered                DateTime? @db.Timestamp(6)
+  ft_wh_delivered                     String?   @db.VarChar(50)
+  ft_wh_max_demand_delivered          String?   @db.VarChar(50)
+  ft_wh_cumulative_demand_delivered   String?   @db.VarChar(50)
+  ft_wh_date_delivered                DateTime? @db.Timestamp(6)
+  fa_varh_delivered                   String?   @db.VarChar(50)
+  fa_varh_max_demand_delivered        String?   @db.VarChar(50)
+  fa_varh_cumulative_demand_delivered String?   @db.VarChar(50)
+  fa_varh_date_delivered              DateTime? @db.Timestamp(6)
+  fb_varh_delivered                   String?   @db.VarChar(50)
+  fb_varh_max_demand_delivered        String?   @db.VarChar(50)
+  fb_varh_cumulative_demand_delivered String?   @db.VarChar(50)
+  fb_varh_date_delivered              DateTime? @db.Timestamp(6)
+  fc_varh_delivered                   String?   @db.VarChar(50)
+  fc_varh_max_demand_delivered        String?   @db.VarChar(50)
+  fc_varh_cumulative_demand_delivered String?   @db.VarChar(50)
+  fc_varh_date_delivered              DateTime? @db.Timestamp(6)
+  fd_varh_delivered                   String?   @db.VarChar(50)
+  fd_varh_max_demand_delivered        String?   @db.VarChar(50)
+  fd_varh_cumulative_demand_delivered String?   @db.VarChar(50)
+  fd_varh_date_delivered              DateTime? @db.Timestamp(6)
+  ft_varh_delivered                   String?   @db.VarChar(50)
+  ft_varh_max_demand_delivered        String?   @db.VarChar(50)
+  ft_varh_cumulative_demand_delivered String?   @db.VarChar(50)
+  ft_varh_date_delivered              DateTime? @db.Timestamp(6)
+  fa_wh_received                      String?   @db.VarChar(50)
+  fa_wh_max_demand_received           String?   @db.VarChar(50)
+  fa_wh_cumulative_demand_received    String?   @db.VarChar(50)
+  fa_wh_date_received                 DateTime? @db.Timestamp(6)
+  fb_wh_received                      String?   @db.VarChar(50)
+  fb_wh_max_demand_received           String?   @db.VarChar(50)
+  fb_wh_cumulative_demand_received    String?   @db.VarChar(50)
+  fb_wh_date_received                 DateTime? @db.Timestamp(6)
+  fc_wh_received                      String?   @db.VarChar(50)
+  fc_wh_max_demand_received           String?   @db.VarChar(50)
+  fc_wh_cumulative_demand_received    String?   @db.VarChar(50)
+  fc_wh_date_received                 DateTime? @db.Timestamp(6)
+  fd_wh_received                      String?   @db.VarChar(50)
+  fd_wh_max_demand_received           String?   @db.VarChar(50)
+  fd_wh_cumulative_demand_received    String?   @db.VarChar(50)
+  fd_wh_date_received                 DateTime? @db.Timestamp(6)
+  ft_wh_received                      String?   @db.VarChar(50)
+  ft_wh_max_demand_received           String?   @db.VarChar(50)
+  ft_wh_cumulative_demand_received    String?   @db.VarChar(50)
+  ft_wh_date_received                 DateTime? @db.Timestamp(6)
+  fa_varh_received                    String?   @db.VarChar(50)
+  fa_varh_max_demand_received         String?   @db.VarChar(50)
+  fa_varh_cumulative_demand_received  String?   @db.VarChar(50)
+  fa_varh_date_received               DateTime? @db.Timestamp(6)
+  fb_varh_received                    String?   @db.VarChar(50)
+  fb_varh_max_demand_received         String?   @db.VarChar(50)
+  fb_varh_cumulative_demand_received  String?   @db.VarChar(50)
+  fb_varh_date_received               DateTime? @db.Timestamp(6)
+  fc_varh_received                    String?   @db.VarChar(50)
+  fc_varh_max_demand_received         String?   @db.VarChar(50)
+  fc_varh_cumulative_demand_received  String?   @db.VarChar(50)
+  fc_varh_date_received               DateTime? @db.Timestamp(6)
+  fd_varh_received                    String?   @db.VarChar(50)
+  fd_varh_max_demand_received         String?   @db.VarChar(50)
+  fd_varh_cumulative_demand_received  String?   @db.VarChar(50)
+  fd_varh_date_received               DateTime? @db.Timestamp(6)
+  ft_varh_received                    String?   @db.VarChar(50)
+  ft_varh_max_demand_received         String?   @db.VarChar(50)
+  ft_varh_cumulative_demand_received  String?   @db.VarChar(50)
+  ft_varh_date_received               DateTime? @db.Timestamp(6)
+  fa_pw_01                            String?   @db.VarChar(50)
+  fb_pw_01                            String?   @db.VarChar(50)
+  fc_pw_01                            String?   @db.VarChar(50)
+  fd_pw_01                            String?   @db.VarChar(50)
+  ft_pw_01                            String?   @db.VarChar(50)
+  fa_pw_23                            String?   @db.VarChar(50)
+  fb_pw_23                            String?   @db.VarChar(50)
+  fc_pw_23                            String?   @db.VarChar(50)
+  fd_pw_23                            String?   @db.VarChar(50)
+  ft_pw_23                            String?   @db.VarChar(50)
+  users                               users?    @relation(fields: [nis_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model users {
+  id                   Int               @id
+  name                 String?           @db.VarChar(100)
+  names                String?           @db.VarChar(200)
+  address              String?           @db.VarChar(200)
+  department           String?           @db.VarChar(50)
+  province             String?           @db.VarChar(50)
+  district             String?           @db.VarChar(50)
+  trunk                String?           @db.VarChar(50)
+  substation           String?           @db.VarChar(50)
+  rate                 String?           @db.VarChar(50)
+  meter_serial_number  String?           @db.VarChar(50)
+  model                String?           @db.VarChar(50)
+  installed_power_sum  Float?
+  contracted_power_sum Float?
+  ciiu_description     String?           @db.VarChar(200)
+  ciiu_code            String?           @db.VarChar(50)
+  business_activity    String?           @db.VarChar(100)
+  voltage              String?           @db.VarChar(100)
+  number_of_wires      Int?
+  current_factor_sum   String?           @db.VarChar(100)
+  voltage_factor_sum   String?           @db.VarChar(100)
+  constant             Float?
+  service_status       String?           @db.VarChar(50)
+  sed_x_coordinate     String?           @db.VarChar(50)
+  sed_y_coordinate     String?           @db.VarChar(50)
+  alerts               alerts[]
+  energy               energy[]
+  instrumentation      instrumentation[]
+  percentile           percentile[]
+  reading              reading[]
+}
+
+model energy {
+  id              Int       @id @default(autoincrement())
+  nis_id          Int?
+  date            DateTime? @db.Timestamp(6)
+  active_energy   String?   @db.VarChar(50)
+  reactive_energy String?   @db.VarChar(50)
+  users           users?    @relation(fields: [nis_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model alerts {
+  id         Int       @id @default(autoincrement())
+  nis_id     Int?
+  date       DateTime? @db.Timestamp(6)
+  hour       Int?
+  alert_type String?   @db.VarChar(50)
+  value      Float?
+  users      users?    @relation(fields: [nis_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model percentile {
+  id     Int    @id @default(autoincrement())
+  nis_id Int?
+  p1     Float?
+  p99    Float?
+  p0_5   Float?
+  p99_5  Float?
+  p0_1   Float?
+  p99_9  Float?
+  hour   Int?
+  users  users? @relation(fields: [nis_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}

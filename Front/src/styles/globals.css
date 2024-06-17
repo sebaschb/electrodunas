@@ -1,0 +1,278 @@
+:root {
+  --color-bg: #fff;
+  --color-border: #e5e7eb;
+  --color-sidebar-item: #f3f4f6;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eee;
+  font-family: "Roboto", sans-serif;
+}
+
+.layout {
+  display: flex;
+  height: 100vh;
+  position: relative;
+  gap: 2rem;
+  background: white;
+}
+
+.layout__main-content {
+  flex-grow: 1;
+  background-color: white;
+}
+
+.sidebar__wrapper {
+  position: relative;
+}
+
+.sidebar {
+  width: 15rem;
+  height: 100%;
+  background-color: var(--color-bg);
+  padding: 1rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  overflow: hidden;
+  border-right: 1px solid #e5e7eb; /* Agrega un borde en el lado derecho */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Agrega una sombra al lado derecho */
+}
+
+.sidebar__top {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sidebar__logo {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+  border-radius: 1rem;
+}
+
+.sidebar__logo-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.sidebar__list {
+  list-style: none;
+}
+
+.sidebar__link {
+  display: inline-block;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #000;
+  padding: 0.8rem 1rem;
+  display: flex;
+  background-color: var(--color-sidebar-item);
+  margin-bottom: 1rem;
+  border-radius: 0.8rem;
+}
+
+.sidebar__link--active {
+  color: #fff;
+  background-color: #2d62ed;
+}
+
+.sidebar__icon {
+  display: inline-block;
+  font-size: 1.2rem;
+}
+
+.sidebar__name {
+  margin-left: 0.5rem;
+}
+
+[data-collapse="true"] {
+  width: 5.3rem;
+}
+
+[data-collapse="true"] .sidebar__name,
+[data-collapse="true"] .sidebar__logo-name {
+  display: none;
+}
+
+.btn-sidebar {
+  position: absolute;
+  right: 0;
+  top: 4.7rem;
+  border: none;
+  background-color: var(--color-bg);
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transform: translateX(50%);
+  font-size: 1.7rem;
+}
+
+.sidebar__list {
+  padding: 0;
+  margin: 0;
+}
+
+.container-fluid {
+  margin-top: 25px !important;
+}
+
+.container {
+  margin-top: 25px !important;
+}
+
+.list-users-name {
+  padding-top: 12px;
+}
+
+.custom-size-modal {
+  max-width: 80%;
+}
+.chart-data {
+  padding-left: 50px;
+}
+
+.chart-energy {
+  padding-right: 50px;
+}
+
+.chart-container {
+  padding: 20px;
+}
+
+.br-info-history {
+  margin-bottom: 40em;
+}
+.br-info-chart {
+  margin-bottom: 5em;
+}
+
+.table-fixed {
+  padding: 20px;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  margin-left: 24px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.filter-select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  outline: none;
+  margin-left: 8px;
+}
+
+.map-container {
+  position: relative;
+}
+
+.loading-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  z-index: 9999;
+}
+
+.loading-text {
+  margin-top: 10px;
+}
+
+/* Estilos para el ícono de carga */
+.spinner-border {
+  width: 2rem;
+  height: 2rem;
+}
+
+.select-order-alarms {
+  width: 100px;
+}
+
+.select-days-alarms {
+  width: 230px;
+}
+.select-endDate-alarms {
+  width: 150px;
+}
+.select-filter-user {
+  width: 210px;
+}
+.input-search-user {
+  width: 280px;
+}
+
+.description-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.info-icon-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.full-description {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(10px);
+  transform-origin: bottom right;
+}
+
+.info-icon-container:hover .full-description {
+  opacity: 1;
+  transform: translateY(-10px);
+  pointer-events: auto;
+}
+
+.alerts-container {
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 750px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+@import "bootstrap/dist/css/bootstrap.css";
